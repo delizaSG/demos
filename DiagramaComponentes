@@ -1,0 +1,27 @@
++------------------------------------------------+
+| GeneraLlamadaLocalExtension                    |
++------------------------------------------------+
+| [-] usuario   : Texto                          |
+| [-] secret    : Decimal                        |
+| [-] canal     : Texto                          |
+| [#] contexto  : Texto                          |
+| [+] extension : Texto                          |
+| [+] callerid  : Texto                          |
++------------------------------------------------+
+| [+] obtenerUsuario   : () -> Texto             |
+| [+] obtenerSecret    : () -> Decimal           |
+| [+] obtenerCanal     : () -> Texto             |
+| [+] obtenerContexto  : () -> Texto             |
+| [+] obtenerExtension : () -> Texto             |
+| [+] obtenerCallerid  : () -> Texto             |
+| [-] verificarContexto : (contexto) -> *        |
+| [-] probarCanal       : (canal)    -> *        |
+| [-] probarExtension   : (extension)-> *        |
+| [#] abrirSocket       : (usuario,secret) -> *  |
+| [#] enviarLlamadaExt  : (extension) -> Texto   |
+| [#] enviarLlamadaLocal: (callerid) -> *        |
+| [+] enlazarLlamada    : () -> Texto            |
+| [+] obtenerBuffer     : (usuario,secret) -> *  |
+| [+] colgarLlamada     : () -> *                |
+| [+] cerrarSocket      : () -> Texto            |    
++------------------------------------------------+
