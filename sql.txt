@@ -1,0 +1,41 @@
+import java.lang.reflect.InvocationTargetException;
+import java.sql.*;
+
+
+// TODO: Corrige las XXXX, puntos y comas, throws e importaciones faltantes
+public class Test3 {
+
+    public static void main(String[] args) throws
+            ClassNotFoundException,NoSuchMethodException,InvocationTargetException,
+            InstantiationException,IllegalAccessException,SQLException
+    {
+
+        // TODO: Coloca la cadena del Driver de MySQL
+        String driver = "com.mysql.cj.jdbc.Driver";
+        Class.forName(driver).getConstructor().newInstance();
+        System.out.println("Driver cargado exitosamente");
+
+        String url = "jdbc:mysql://localhost";
+        String dbName = "test";
+        String user = "root";
+        String password = "";
+
+        Connection conn = DriverManager.getConnection(url + dbName, user,  password);
+        System.out.println("Conectado a la BD exitosamente");
+
+        String sql = "SELECT NOW() as Fecha";
+
+        // TODO: Crea una instancia de PreparedStatement llamada `stament`
+        // NOTA: Usa la conexión `conn` para crearla y el query `sql`
+        PreparedStatement statement = conn.prepareStatement(sql);
+        ResultSet resultSet = statement.executeQuery();
+        resultSet.next();
+
+        String fecha = resultSet.getString(1);
+        System.out.printf("La fecha es: %s\n", fecha);
+        conn.close();
+        System.out.println("La base de datos ha sido cerrada exitosamente");
+
+    }
+
+}
